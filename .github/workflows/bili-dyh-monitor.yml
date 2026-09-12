@@ -1,0 +1,63 @@
+name: B站大会员点映会监控与部署
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # 每 30 分钟自动检查一次
+  workflow_dispatch:      # 支持手动触发
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  monitor-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 配置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 执行点映会检测与 Bark 推送
+        env:
+          BARK_SERVER: ${{ vars.BARK_SERVER || 'https://bark.guoyingwei.top' }}
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+        run: |
+          python monitor.py
+
+      - name: 提交更新状态
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json data.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update monitor data [skip ci]"
+            git push
+          else
+            echo "数据未变动，无需提交"
+          fi
+
+      - name: 配置 GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传 Pages 产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

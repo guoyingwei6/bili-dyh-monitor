@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B站大会员点映会监控中心 (GitHub Pages)</title>
+  <link rel="icon" href="https://www.bilibili.com/favicon.ico">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #fb7299;
+      --accent-hover: #e06085;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .title-box h1 {
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .title-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    button, a.btn {
+      background-color: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    button:hover, a.btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    a.btn.primary {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    a.btn.primary:hover {
+      background-color: var(--accent-hover);
+    }
+    .status-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      gap: 12px;
+    }
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-gray { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .card-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #334155;
+      object-fit: cover;
+      display: block;
+    }
+    .card-content {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-info {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-btn {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+    .card-btn a {
+      display: block;
+      text-align: center;
+      background: rgba(251, 114, 153, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .card-btn a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .empty-state {
+      background-color: var(--card-bg);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 32px 16px;
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .empty-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title-box">
+        <h1>🎬 B站大会员点映会监控 (GitHub Pages)</h1>
+        <p>由 GitHub Actions 定时运行监控并渲染静态看板</p>
+      </div>
+      <div class="actions">
+        <button onclick="loadData()">🔄 刷新数据</button>
+        <a class="btn primary" href="https://b23.tv/O1cUFKs" target="_blank">🌐 B站活动原页</a>
+      </div>
+    </header>
+
+    <div class="status-bar">
+      <div class="status-indicator">
+        <span class="dot"></span>
+        <span>GitHub Actions 每 30 分钟检测</span>
+      </div>
+      <div id="check-time" style="color: var(--text-muted);">正在加载...</div>
+    </div>
+
+    <!-- 正在进行 -->
+    <div class="section-title">
+      <span>🔥 正在进行汇总的项目</span>
+      <span id="ongoing-badge" class="badge badge-success">0</span>
+    </div>
+    <div id="ongoing-container"></div>
+
+    <!-- 活动预告 -->
+    <div class="section-title">
+      <span>📅 活动预告</span>
+      <span id="upcoming-badge" class="badge badge-gray">0</span>
+    </div>
+    <div id="upcoming-container"></div>
+
+    <!-- 历史活动 -->
+    <div class="section-title">
+      <span>🎞️ 历史点映会</span>
+      <span id="history-badge" class="badge badge-gray">0</span>
+    </div>
+    <div id="history-container" class="cards-grid"></div>
+  </div>
+
+  <script>
+    function formatTime(ts) {
+      if (!ts) return '待定';
+      const d = new Date(ts * 1000);
+      const pad = n => String(n).padStart(2, '0');
+      return `${d.getMonth()+1}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    function renderCard(item, isOngoing) {
+      const cover = item.cover || 'https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/2F81VVDBCE.jpg';
+      const link = item.link || item.register_info_share_link || 'https://b23.tv/O1cUFKs';
+      return `
+        <div class="card">
+          <img class="card-cover" src="${cover}" alt="${item.title}" loading="lazy">
+          <div class="card-content">
+            <div class="card-title">${item.title}</div>
+            <div class="card-info">📍 城市：${item.city || '全国多城'}</div>
+            <div class="card-info">⏰ 报名：${formatTime(item.start_time)} ~ ${formatTime(item.end_time)}</div>
+            ${item.date ? `<div class="card-info">🎟️ 放映：${formatTime(item.date)}</div>` : ''}
+            <div class="card-btn">
+              <a href="${link}" target="_blank">${isOngoing ? '🚀 立即报名' : '查看详情'}</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        if (!res.ok) throw new Error('data.json 加载失败');
+        const data = await res.json();
+
+        document.getElementById('check-time').innerText = '数据更新于：' + data.updated_at;
+
+        // 正在进行
+        document.getElementById('ongoing-badge').innerText = data.ongoing_count;
+        const ongoingBox = document.getElementById('ongoing-container');
+        if (data.ongoing && data.ongoing.length > 0) {
+          ongoingBox.className = 'cards-grid';
+          ongoingBox.innerHTML = data.ongoing.map(i => renderCard(i, true)).join('');
+        } else {
+          ongoingBox.className = '';
+          ongoingBox.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">☕</div>
+              <div>当前暂无正在进行报名的点映会项目</div>
+              <div style="font-size: 12px; margin-top: 4px; color: #64748b;">定时监控持续运行中，一旦有新活动上线将立即推送 Bark</div>
+            </div>
+          `;
+        }
+
+        // 预告
+        document.getElementById('upcoming-badge').innerText = data.upcoming_count;
+        const upcomingBox = document.getElementById('upcoming-container');
+        if (data.upcoming && data.upcoming.length > 0) {
+          upcomingBox.className = 'cards-grid';
+          upcomingBox.innerHTML = data.upcoming.map(i => renderCard(i, false)).join('');
+        } else {
+          upcomingBox.className = '';
+          upcomingBox.innerHTML = `
+            <div class="empty-state" style="padding: 16px; margin-bottom: 24px;">
+              <div>暂无活动预告</div>
+            </div>
+          `;
+        }
+
+        // 历史活动
+        document.getElementById('history-badge').innerText = data.history_count;
+        const historyBox = document.getElementById('history-container');
+        if (data.history && data.history.length > 0) {
+          historyBox.innerHTML = data.history.map(i => renderCard(i, false)).join('');
+        }
+      } catch (err) {
+        document.getElementById('check-time').innerText = '加载数据失败: ' + err.message;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

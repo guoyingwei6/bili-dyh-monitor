@@ -261,17 +261,20 @@
 
     function renderCard(item, isOngoing) {
       const cover = item.cover || 'https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/2F81VVDBCE.jpg';
-      const link = item.link || item.register_info_share_link || 'https://b23.tv/O1cUFKs';
+      const registerLink = item.register_info_share_link || item.link || 'https://b23.tv/O1cUFKs';
+      const detailLink = item.link;
       return `
         <div class="card">
           <img class="card-cover" src="${cover}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
           <div class="card-content">
             <div class="card-title">${item.title}</div>
+            <div class="card-info">🏷️ 类型：${item.type_name || '线下点映'}</div>
             <div class="card-info">📍 城市：${item.city || '全国多城'}</div>
             <div class="card-info">⏰ 报名：${formatTime(item.start_time)} ~ ${formatTime(item.end_time)}</div>
             ${item.date ? `<div class="card-info">🎟️ 放映：${formatTime(item.date)}</div>` : ''}
-            <div class="card-btn">
-              <a href="${link}" target="_blank">${isOngoing ? '🚀 立即报名' : '查看详情'}</a>
+            <div class="card-btn" style="display: flex; gap: 8px;">
+              <a href="${registerLink}" target="_blank" style="flex: 1; text-align: center;">${isOngoing ? '🚀 立即抢票' : '🎫 报名页面'}</a>
+              ${detailLink && detailLink !== registerLink ? `<a href="${detailLink}" target="_blank" style="padding: 6px 8px; font-size: 12px; background: transparent; border-color: var(--border); color: var(--text-muted);">📖 详情</a>` : ''}
             </div>
           </div>
         </div>

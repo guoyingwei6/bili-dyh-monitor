@@ -103,18 +103,23 @@ def main():
         item_id = str(item.get("id"))
         if item_id not in notified_set:
             title = f"🎬 B站大会员点映会开抢：{item.get('title')}"
+            type_name = item.get("type_name") or "线下点映"
             city = item.get("city") or "全国"
             start_str = get_beijing_time(item.get("start_time")) if item.get("start_time") else ""
             end_str = get_beijing_time(item.get("end_time")) if item.get("end_time") else ""
             date_str = get_beijing_time(item.get("date")) if item.get("date") else ""
-            link = item.get("link") or item.get("register_info_share_link") or "https://b23.tv/O1cUFKs"
+            register_link = item.get("register_info_share_link")
+            detail_link = item.get("link")
+            target_url = register_link or detail_link or "https://b23.tv/O1cUFKs"
 
-            body = f"📍 城市：{city}\n⏰ 报名：{start_str} ~ {end_str}"
+            body = f"🏷️ 类型：{type_name}\n📍 城市：{city}\n⏰ 报名：{start_str} ~ {end_str}"
             if date_str:
                 body += f"\n🎟️ 放映：{date_str}"
-            body += "\n点击前往活动页！"
+            body += "\n👉 点击此通知直达【报名页】立即抢票！"
+            if detail_link and detail_link != target_url:
+                body += f"\n📖 活动详情：{detail_link}"
 
-            if send_bark(title, body, link):
+            if send_bark(title, body, target_url):
                 notified_set.add(item_id)
                 new_notified.append(item_id)
 

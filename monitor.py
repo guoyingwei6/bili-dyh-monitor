@@ -135,7 +135,7 @@ def main():
         "history_count": len(history),
         "ongoing": ongoing,
         "upcoming": upcoming,
-        "history": history[:12]
+        "history": history
     }
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>B站大会员点映会监控中心 (GitHub Pages)</title>
   <link rel="icon" href="https://www.bilibili.com/favicon.ico">
   <style>
@@ -263,7 +264,7 @@
       const link = item.link || item.register_info_share_link || 'https://b23.tv/O1cUFKs';
       return `
         <div class="card">
-          <img class="card-cover" src="${cover}" alt="${item.title}" loading="lazy">
+          <img class="card-cover" src="${cover}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
           <div class="card-content">
             <div class="card-title">${item.title}</div>
             <div class="card-info">📍 城市：${item.city || '全国多城'}</div>

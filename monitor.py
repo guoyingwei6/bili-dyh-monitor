@@ -11,10 +11,12 @@ import json
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
 from datetime import datetime, timezone, timedelta
 
 BILI_API = "https://api.bilibili.com/x/vip/web/vip_center/offlinemeeting"
 DEFAULT_BARK_SERVER = "https://bark.guoyingwei.top"
+BARK_USER_AGENT = "bili-dyh-monitor/1.0"
 STATE_FILE = "state.json"
 DATA_FILE = "data.json"
 
@@ -40,7 +42,7 @@ def send_bark(title, body, url="https://b23.tv/O1cUFKs"):
     server = os.environ.get("BARK_SERVER", DEFAULT_BARK_SERVER).rstrip("/")
     key = os.environ.get("BARK_KEY")
     if not key:
-        print("警告: 未设置 BARK_KEY 环境变量，跳过推送", file=sys.stderr)
+        print("Bark 推送失败: 未设置 BARK_KEY 环境变量", file=sys.stderr)
         return False
 
     endpoint = f"{server}/{key}"
@@ -57,16 +59,36 @@ def send_bark(title, body, url="https://b23.tv/O1cUFKs"):
     req = urllib.request.Request(
         endpoint,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json; charset=utf-8"},
+        headers={
+            "Content-Type": "application/json; charset=utf-8",
+            "User-Agent": BARK_USER_AGENT,
+        },
         method="POST"
     )
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
-            print(f"Bark 推送成功: HTTP {resp.status}")
+            raw_body = resp.read().decode("utf-8")
+            try:
+                result = json.loads(raw_body)
+            except ValueError:
+                raise ValueError(f"HTTP {resp.status}, 响应不是 JSON: {raw_body[:512]}")
+            if resp.status != 200 or not isinstance(result, dict) or result.get("code") != 200:
+                raise ValueError(f"HTTP {resp.status}, Bark 未确认成功: {raw_body[:512]}")
+            print(f"Bark 推送成功: HTTP {resp.status}, code=200")
             return True
+    except urllib.error.HTTPError as e:
+        try:
+            detail = e.read(2048).decode("utf-8", errors="replace")
+        except Exception:
+            detail = "无法读取错误响应"
+        ray = e.headers.get("CF-Ray", "") if e.headers else ""
+        error = f"HTTP {e.code}, CF-Ray={ray or '无'}, 响应: {detail}"
     except Exception as e:
-        print(f"Bark 推送失败: {e}", file=sys.stderr)
-        return False
+        error = f"{type(e).__name__}: {e}"
+    for secret in (urllib.parse.quote(key, safe=""), urllib.parse.quote_plus(key), key):
+        error = error.replace(secret, "[REDACTED]")
+    print(f"Bark 推送失败: {error}", file=sys.stderr)
+    return False
 
 def main():
     print(f"开始检查 B站大会员点映会活动 [{get_beijing_time()}]...")
@@ -96,6 +118,7 @@ def main():
     state = load_state()
     notified_set = set(str(i) for i in state.get("notified_ids", []))
     new_notified = []
+    failed_ids = []
 
     print(f"当前状态: 正在进行 {len(ongoing)} 个, 活动预告 {len(upcoming)} 个, 历史活动 {len(history)} 个")
 
@@ -122,8 +145,10 @@ def main():
             if send_bark(title, body, target_url):
                 notified_set.add(item_id)
                 new_notified.append(item_id)
+            else:
+                failed_ids.append(item_id)
 
-    state["notified_ids"] = list(notified_set)
+    state["notified_ids"] = sorted(notified_set)
     state["last_checked"] = get_beijing_time()
     save_state(state)
 
@@ -141,6 +166,10 @@ def main():
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
     print(f"检查完毕: 本次新增提醒 {len(new_notified)} 个，已更新 {DATA_FILE}")
+    if failed_ids:
+        print(f"推送失败的活动 ID: {', '.join(failed_ids)}；保留待下次重试", file=sys.stderr)
+        return 1
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

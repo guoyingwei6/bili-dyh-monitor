@@ -31,7 +31,13 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: 验证通知逻辑
+        run: python -m unittest discover -s tests -v
+
       - name: 执行点映会检测与 Bark 推送
+        id: monitor
+        # 先保存已成功推送的去重状态并更新看板，最后显式报告失败。
+        continue-on-error: true
         env:
           BARK_SERVER: ${{ vars.BARK_SERVER || 'https://bark.guoyingwei.top' }}
           BARK_KEY: ${{ secrets.BARK_KEY }}
@@ -61,3 +67,9 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: 检查监控结果
+        if: ${{ !cancelled() && steps.monitor.outcome == 'failure' }}
+        run: |
+          echo "::error::活动检测或 Bark 推送失败，请检查监控步骤日志；未成功推送的活动将在下次运行重试。"
+          exit 1

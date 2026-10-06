@@ -1,41 +1,14 @@
 {
-  "updated_at": "2026-10-06 08:35",
-  "ongoing_count": 1,
+  "updated_at": "2026-10-06 15:11",
+  "ongoing_count": 0,
   "upcoming_count": 0,
-  "history_count": 19,
-  "ongoing": [
-    {
-      "id": 7395,
-      "index": 0,
-      "title": "《生化危机：爆发夜》大会员点映会",
-      "types": [
-        5,
-        100
-      ],
-      "type": 5,
-      "type_name": "全国多城",
-      "color": "#3a434b",
-      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/e97b9f5d8f4e377833b442808ab3a6820cf6ca9b.jpg",
-      "cover_title": "活动时间",
-      "link": "https://www.bilibili.com/blackboard/era/qWEG0cBCURxPQtlh.html",
-      "date": 1791266400,
-      "city": "北京、上海、广州",
-      "state": 5,
-      "start_time": 1790654400,
-      "end_time": 1790913600,
-      "movie_reservation_state": false,
-      "activity_code": "kqvqaoahod",
-      "register_info_share_link": "https://www.bilibili.com/blackboard/era/qWEG0cBCURxPQtlh.html",
-      "image": "",
-      "sub_image": "",
-      "time_range": ""
-    }
-  ],
+  "history_count": 20,
+  "ongoing": [],
   "upcoming": [],
   "history": [
     {
       "id": 7339,
-      "index": 1,
+      "index": 0,
       "title": "《长生契》大会员点映会",
       "types": [
         3
@@ -60,7 +33,7 @@
     },
     {
       "id": 7340,
-      "index": 2,
+      "index": 1,
       "title": "《复仇者联盟4：终局之战》大会员点映会",
       "types": [
         5,
@@ -86,7 +59,7 @@
     },
     {
       "id": 7244,
-      "index": 3,
+      "index": 2,
       "title": "《生命奇观2》大会员点映会",
       "types": [
         5,
@@ -112,7 +85,7 @@
     },
     {
       "id": 7186,
-      "index": 4,
+      "index": 3,
       "title": "《怒之杀》大会员点映会",
       "types": [
         5,
@@ -138,7 +111,7 @@
     },
     {
       "id": 7105,
-      "index": 5,
+      "index": 4,
       "title": "《大唐妖探》大会员点映会",
       "types": [
         5,
@@ -164,7 +137,7 @@
     },
     {
       "id": 7038,
-      "index": 6,
+      "index": 5,
       "title": "《奥德赛》大会员点映会",
       "types": [
         5,
@@ -190,7 +163,7 @@
     },
     {
       "id": 7015,
-      "index": 7,
+      "index": 6,
       "title": "《时光代理人》第三季PART ONE 大会员点映会",
       "types": [
         5,
@@ -216,7 +189,7 @@
     },
     {
       "id": 6990,
-      "index": 8,
+      "index": 7,
       "title": "《昭阳公主》超大专属主创见面会",
       "types": [
         3,
@@ -242,7 +215,7 @@
     },
     {
       "id": 6864,
-      "index": 9,
+      "index": 8,
       "title": "《记忆管理局》大会员点映会",
       "types": [
         5,
@@ -268,7 +241,7 @@
     },
     {
       "id": 6916,
-      "index": 10,
+      "index": 9,
       "title": "《恐怖游轮》大会员点映会",
       "types": [
         5
@@ -293,7 +266,7 @@
     },
     {
       "id": 6845,
-      "index": 11,
+      "index": 10,
       "title": "《海洋奇缘：启航》大会员点映会",
       "types": [
         5
@@ -318,7 +291,7 @@
     },
     {
       "id": 6784,
-      "index": 12,
+      "index": 11,
       "title": "《心间错》超级大会员专属主创见面会",
       "types": [
         3,
@@ -344,7 +317,7 @@
     },
     {
       "id": 6772,
-      "index": 13,
+      "index": 12,
       "title": "《神奇数字马戏团》大会员点映会",
       "types": [
         9,
@@ -370,7 +343,7 @@
     },
     {
       "id": 6712,
-      "index": 14,
+      "index": 13,
       "title": "《钟馗》大会员点映会",
       "types": [
         5,
@@ -396,7 +369,7 @@
     },
     {
       "id": 6677,
-      "index": 15,
+      "index": 14,
       "title": "《星球大战：曼达洛人与古古》大会员点映会",
       "types": [
         9
@@ -421,7 +394,7 @@
     },
     {
       "id": 6521,
-      "index": 16,
+      "index": 15,
       "title": "《燃比娃》大会员点映会",
       "types": [
         3,
@@ -447,7 +420,7 @@
     },
     {
       "id": 6531,
-      "index": 17,
+      "index": 16,
       "title": "《迈克尔·杰克逊：巨星之路》大会员点映会",
       "types": [
         9,
@@ -473,7 +446,7 @@
     },
     {
       "id": 6475,
-      "index": 18,
+      "index": 17,
       "title": "《开拍啦！怪兽大电影》大会员点映会",
       "types": [
         1,
@@ -499,7 +472,7 @@
     },
     {
       "id": 6414,
-      "index": 19,
+      "index": 18,
       "title": "《将夜》大会员点映会",
       "types": [
         3,
@@ -519,6 +492,32 @@
       "movie_reservation_state": false,
       "activity_code": "lfkqwbduml",
       "register_info_share_link": "https://www.bilibili.com/blackboard/era/aZsyx5LzZBfPdMgc.html",
+      "image": "",
+      "sub_image": "",
+      "time_range": ""
+    },
+    {
+      "id": 6330,
+      "index": 19,
+      "title": "《超级马力欧银河大电影》B站大会员点映会",
+      "types": [
+        1,
+        100
+      ],
+      "type": 1,
+      "type_name": "独家首映",
+      "color": "#3e293e",
+      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/f6ec3f8eac3998c8b757806d64d65474028a6656.png",
+      "cover_title": "活动时间",
+      "link": "https://www.bilibili.com/blackboard/era/M7pBtUbIH2cwWvCy.html",
+      "date": 1775201400,
+      "city": "上海",
+      "state": 4,
+      "start_time": 1774584000,
+      "end_time": 1774929600,
+      "movie_reservation_state": false,
+      "activity_code": "uochbqvbcq",
+      "register_info_share_link": "https://www.bilibili.com/blackboard/era/M7pBtUbIH2cwWvCy.html",
       "image": "",
       "sub_image": "",
       "time_range": ""

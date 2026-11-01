@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01 09:51",
+  "updated_at": "2026-11-01 16:43",
   "ongoing_count": 1,
   "upcoming_count": 0,
   "history_count": 19,
@@ -20,7 +20,7 @@
       "link": "https://www.bilibili.com/blackboard/era/zq2TfvBuEdx9wPfJ.html",
       "date": 1793790000,
       "city": "上海、北京、成都、长沙、广州、杭州、重庆、武汉、南京、西安",
-      "state": 2,
+      "state": 5,
       "start_time": 1793332800,
       "end_time": 1793505600,
       "movie_reservation_state": false,

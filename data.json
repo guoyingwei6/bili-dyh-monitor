@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18 11:02",
+  "updated_at": "2026-11-18 20:03",
   "ongoing_count": 1,
   "upcoming_count": 0,
   "history_count": 19,
@@ -34,8 +34,60 @@
   "upcoming": [],
   "history": [
     {
-      "id": 7402,
+      "id": 7571,
       "index": 1,
+      "title": "BLG大会员总决赛线下专属观赛团",
+      "types": [
+        5,
+        100
+      ],
+      "type": 5,
+      "type_name": "全国多城",
+      "color": "#2f335c",
+      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/cb0ed30a094f59c4dddda5adc8110153f2ec144a.jpg",
+      "cover_title": "活动时间",
+      "link": "https://www.bilibili.com/opus/1270720504699813888?spm_id_from=333.1387.0.0",
+      "date": 1794682800,
+      "city": "上海、北京、南京、成都、杭州、西安、武汉、深圳、广州、长沙",
+      "state": 4,
+      "start_time": 1794391200,
+      "end_time": 1794542400,
+      "movie_reservation_state": false,
+      "activity_code": "bikcpjqrzr",
+      "register_info_share_link": "https://www.bilibili.com/blackboard/era/OUktSpHcEA9IECZE.html",
+      "image": "",
+      "sub_image": "",
+      "time_range": ""
+    },
+    {
+      "id": 7536,
+      "index": 2,
+      "title": "《人生一串4》大会员点映会",
+      "types": [
+        5,
+        100
+      ],
+      "type": 5,
+      "type_name": "全国多城",
+      "color": "#411f15",
+      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/ce0a0422c71504a333af432f6aa4b7d92f66fc4a.jpg",
+      "cover_title": "活动时间",
+      "link": "https://www.bilibili.com/opus/1267147639491657768?spm_id_from=333.1387.0.0",
+      "date": 1793790000,
+      "city": "上海、北京、成都、长沙、广州、杭州、重庆、武汉、南京、西安",
+      "state": 4,
+      "start_time": 1793332800,
+      "end_time": 1793505600,
+      "movie_reservation_state": false,
+      "activity_code": "xvfnrralqd",
+      "register_info_share_link": "https://www.bilibili.com/blackboard/era/zq2TfvBuEdx9wPfJ.html",
+      "image": "",
+      "sub_image": "",
+      "time_range": ""
+    },
+    {
+      "id": 7402,
+      "index": 3,
       "title": "《牧神记》大会员点映会",
       "types": [
         3,
@@ -61,7 +113,7 @@
     },
     {
       "id": 7400,
-      "index": 2,
+      "index": 4,
       "title": "《三国第一部：争洛阳》大会员点映会",
       "types": [
         5,
@@ -87,7 +139,7 @@
     },
     {
       "id": 7395,
-      "index": 3,
+      "index": 5,
       "title": "《生化危机：爆发夜》大会员点映会",
       "types": [
         5,
@@ -113,7 +165,7 @@
     },
     {
       "id": 7339,
-      "index": 4,
+      "index": 6,
       "title": "《长生契》大会员点映会",
       "types": [
         3
@@ -138,7 +190,7 @@
     },
     {
       "id": 7340,
-      "index": 5,
+      "index": 7,
       "title": "《复仇者联盟4：终局之战》大会员点映会",
       "types": [
         5,
@@ -164,7 +216,7 @@
     },
     {
       "id": 7244,
-      "index": 6,
+      "index": 8,
       "title": "《生命奇观2》大会员点映会",
       "types": [
         5,
@@ -190,7 +242,7 @@
     },
     {
       "id": 7186,
-      "index": 7,
+      "index": 9,
       "title": "《怒之杀》大会员点映会",
       "types": [
         5,
@@ -216,7 +268,7 @@
     },
     {
       "id": 7105,
-      "index": 8,
+      "index": 10,
       "title": "《大唐妖探》大会员点映会",
       "types": [
         5,
@@ -242,7 +294,7 @@
     },
     {
       "id": 7038,
-      "index": 9,
+      "index": 11,
       "title": "《奥德赛》大会员点映会",
       "types": [
         5,
@@ -268,7 +320,7 @@
     },
     {
       "id": 7015,
-      "index": 10,
+      "index": 12,
       "title": "《时光代理人》第三季PART ONE 大会员点映会",
       "types": [
         5,
@@ -294,7 +346,7 @@
     },
     {
       "id": 6990,
-      "index": 11,
+      "index": 13,
       "title": "《昭阳公主》超大专属主创见面会",
       "types": [
         3,
@@ -320,7 +372,7 @@
     },
     {
       "id": 6864,
-      "index": 12,
+      "index": 14,
       "title": "《记忆管理局》大会员点映会",
       "types": [
         5,
@@ -346,7 +398,7 @@
     },
     {
       "id": 6916,
-      "index": 13,
+      "index": 15,
       "title": "《恐怖游轮》大会员点映会",
       "types": [
         5
@@ -371,7 +423,7 @@
     },
     {
       "id": 6845,
-      "index": 14,
+      "index": 16,
       "title": "《海洋奇缘：启航》大会员点映会",
       "types": [
         5
@@ -396,7 +448,7 @@
     },
     {
       "id": 6784,
-      "index": 15,
+      "index": 17,
       "title": "《心间错》超级大会员专属主创见面会",
       "types": [
         3,
@@ -422,7 +474,7 @@
     },
     {
       "id": 6772,
-      "index": 16,
+      "index": 18,
       "title": "《神奇数字马戏团》大会员点映会",
       "types": [
         9,
@@ -448,7 +500,7 @@
     },
     {
       "id": 6712,
-      "index": 17,
+      "index": 19,
       "title": "《钟馗》大会员点映会",
       "types": [
         5,
@@ -468,57 +520,6 @@
       "movie_reservation_state": false,
       "activity_code": "veivfgqmhi",
       "register_info_share_link": "https://www.bilibili.com/blackboard/era/6UrTS92QgrveFILf.html",
-      "image": "",
-      "sub_image": "",
-      "time_range": ""
-    },
-    {
-      "id": 6677,
-      "index": 18,
-      "title": "《星球大战：曼达洛人与古古》大会员点映会",
-      "types": [
-        9
-      ],
-      "type": 9,
-      "type_name": "特邀观影",
-      "color": "#372c20",
-      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/b66611edccd161c3b26540d04953ce709c0d14d9.png",
-      "cover_title": "活动时间",
-      "link": "https://www.bilibili.com/blackboard/era/BgdFzNKgwO8XPofS.html",
-      "date": 1778910600,
-      "city": "杭州",
-      "state": 4,
-      "start_time": 1778328000,
-      "end_time": 1778644800,
-      "movie_reservation_state": false,
-      "activity_code": "orcusmqhjh",
-      "register_info_share_link": "https://www.bilibili.com/blackboard/era/BgdFzNKgwO8XPofS.html",
-      "image": "",
-      "sub_image": "",
-      "time_range": ""
-    },
-    {
-      "id": 6521,
-      "index": 19,
-      "title": "《燃比娃》大会员点映会",
-      "types": [
-        3,
-        100
-      ],
-      "type": 3,
-      "type_name": "主创互动",
-      "color": "#5c2703",
-      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/4abfcaf28c5e828edf9955bd8fbc2571367639b5.jpg",
-      "cover_title": "活动时间",
-      "link": "https://www.bilibili.com/blackboard/era/HNbkpZFG8kBKGJbj.html",
-      "date": 1777028400,
-      "city": "上海、北京、成都、广州、郑州",
-      "state": 4,
-      "start_time": 1776312000,
-      "end_time": 1776744000,
-      "movie_reservation_state": false,
-      "activity_code": "enojytving",
-      "register_info_share_link": "https://www.bilibili.com/blackboard/era/HNbkpZFG8kBKGJbj.html",
       "image": "",
       "sub_image": "",
       "time_range": ""

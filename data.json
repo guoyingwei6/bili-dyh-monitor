@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-22 08:57",
-  "ongoing_count": 2,
+  "updated_at": "2026-11-22 15:53",
+  "ongoing_count": 1,
   "upcoming_count": 0,
-  "history_count": 18,
+  "history_count": 19,
   "ongoing": [
     {
       "id": 7606,
@@ -29,39 +29,13 @@
       "image": "",
       "sub_image": "",
       "time_range": ""
-    },
-    {
-      "id": 7563,
-      "index": 1,
-      "title": "《魔法秘境》大会员点映会",
-      "types": [
-        5,
-        100
-      ],
-      "type": 5,
-      "type_name": "全国多城",
-      "color": "#322d3f",
-      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/8e8ad1994b016092f722c593d0c9ba87ca76d21e.jpg",
-      "cover_title": "活动时间",
-      "link": "https://m.bilibili.com/doria/view-movie.html?aid=zunyepuypj",
-      "date": 1795777200,
-      "city": "北京、上海、广州",
-      "state": 2,
-      "start_time": 1794801600,
-      "end_time": 1795320000,
-      "movie_reservation_state": false,
-      "activity_code": "zunyepuypj",
-      "register_info_share_link": "https://www.bilibili.com/blackboard/era/AUMl4n5hVPCeS3Bg.html",
-      "image": "",
-      "sub_image": "",
-      "time_range": ""
     }
   ],
   "upcoming": [],
   "history": [
     {
       "id": 7571,
-      "index": 2,
+      "index": 1,
       "title": "BLG大会员总决赛线下专属观赛团",
       "types": [
         5,
@@ -87,7 +61,7 @@
     },
     {
       "id": 7536,
-      "index": 3,
+      "index": 2,
       "title": "《人生一串4》大会员点映会",
       "types": [
         5,
@@ -113,7 +87,7 @@
     },
     {
       "id": 7402,
-      "index": 4,
+      "index": 3,
       "title": "《牧神记》大会员点映会",
       "types": [
         3,
@@ -139,7 +113,7 @@
     },
     {
       "id": 7400,
-      "index": 5,
+      "index": 4,
       "title": "《三国第一部：争洛阳》大会员点映会",
       "types": [
         5,
@@ -165,7 +139,7 @@
     },
     {
       "id": 7395,
-      "index": 6,
+      "index": 5,
       "title": "《生化危机：爆发夜》大会员点映会",
       "types": [
         5,
@@ -191,7 +165,7 @@
     },
     {
       "id": 7339,
-      "index": 7,
+      "index": 6,
       "title": "《长生契》大会员点映会",
       "types": [
         3
@@ -216,7 +190,7 @@
     },
     {
       "id": 7340,
-      "index": 8,
+      "index": 7,
       "title": "《复仇者联盟4：终局之战》大会员点映会",
       "types": [
         5,
@@ -242,7 +216,7 @@
     },
     {
       "id": 7244,
-      "index": 9,
+      "index": 8,
       "title": "《生命奇观2》大会员点映会",
       "types": [
         5,
@@ -268,7 +242,7 @@
     },
     {
       "id": 7186,
-      "index": 10,
+      "index": 9,
       "title": "《怒之杀》大会员点映会",
       "types": [
         5,
@@ -294,7 +268,7 @@
     },
     {
       "id": 7105,
-      "index": 11,
+      "index": 10,
       "title": "《大唐妖探》大会员点映会",
       "types": [
         5,
@@ -320,7 +294,7 @@
     },
     {
       "id": 7038,
-      "index": 12,
+      "index": 11,
       "title": "《奥德赛》大会员点映会",
       "types": [
         5,
@@ -346,7 +320,7 @@
     },
     {
       "id": 7015,
-      "index": 13,
+      "index": 12,
       "title": "《时光代理人》第三季PART ONE 大会员点映会",
       "types": [
         5,
@@ -372,7 +346,7 @@
     },
     {
       "id": 6990,
-      "index": 14,
+      "index": 13,
       "title": "《昭阳公主》超大专属主创见面会",
       "types": [
         3,
@@ -398,7 +372,7 @@
     },
     {
       "id": 6864,
-      "index": 15,
+      "index": 14,
       "title": "《记忆管理局》大会员点映会",
       "types": [
         5,
@@ -424,7 +398,7 @@
     },
     {
       "id": 6916,
-      "index": 16,
+      "index": 15,
       "title": "《恐怖游轮》大会员点映会",
       "types": [
         5
@@ -449,7 +423,7 @@
     },
     {
       "id": 6845,
-      "index": 17,
+      "index": 16,
       "title": "《海洋奇缘：启航》大会员点映会",
       "types": [
         5
@@ -474,7 +448,7 @@
     },
     {
       "id": 6784,
-      "index": 18,
+      "index": 17,
       "title": "《心间错》超级大会员专属主创见面会",
       "types": [
         3,
@@ -500,7 +474,7 @@
     },
     {
       "id": 6772,
-      "index": 19,
+      "index": 18,
       "title": "《神奇数字马戏团》大会员点映会",
       "types": [
         9,
@@ -520,6 +494,32 @@
       "movie_reservation_state": false,
       "activity_code": "eanlsygyzk",
       "register_info_share_link": "https://www.bilibili.com/blackboard/era/fIDPCfKiiNSPpus2.html",
+      "image": "",
+      "sub_image": "",
+      "time_range": ""
+    },
+    {
+      "id": 6712,
+      "index": 19,
+      "title": "《钟馗》大会员点映会",
+      "types": [
+        5,
+        100
+      ],
+      "type": 5,
+      "type_name": "全国多城",
+      "color": "#5a3b10",
+      "cover": "https://i0.hdslb.com/bfs/bangumi/kt/511c60ff1efe75a3c2dff9c58d591c2566886edb.jpg",
+      "cover_title": "活动时间",
+      "link": "https://www.bilibili.com/opus/1209181042892603417?spm_id_from=333.1387.0.0",
+      "date": 1780124400,
+      "city": "上海、成都、杭州、南京、西安",
+      "state": 4,
+      "start_time": 1779184800,
+      "end_time": 1779768000,
+      "movie_reservation_state": false,
+      "activity_code": "veivfgqmhi",
+      "register_info_share_link": "https://www.bilibili.com/blackboard/era/6UrTS92QgrveFILf.html",
       "image": "",
       "sub_image": "",
       "time_range": ""
